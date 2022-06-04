@@ -1,0 +1,12 @@
+version '3.8'
+
+services:
+  smart-brain-api:
+    container_name: backend
+    # image: node:lts-alpine3.14
+    build: ./
+    command: npm start
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    
