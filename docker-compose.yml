@@ -1,12 +1,30 @@
-version '3.8'
+version: '3.8'
 
 services:
+  #Backend API
   smart-brain-api:
     container_name: backend
     # image: node:lts-alpine3.14
     build: ./
     command: npm start
-    working_dir: /app
+    working_dir: /usr/src/smart-brain-api
+    environment:
+      POSTGRES_URI: postgres://gabyp:s2d4b9z3@postgres:5432/smart-brain
+    links:
+      - postgres
     ports:
       - "3000:3000"
-    
+    volumes:
+      - ./:/usr/src/smart-brain-api
+      - /opt/usr/src/smart-brain-api/node_modules/
+
+    # Postgres
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: sally
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: smart-brain-docker
+      POSTGRES_HOST: postgres
