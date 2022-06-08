@@ -9,15 +9,14 @@ services:
     command: npm start
     working_dir: /usr/src/smart-brain-api
     environment:
-      POSTGRES_URI: postgres://gabyp:s2d4b9z3@postgres:5432/smart-brain
+      POSTGRES_USER: gabi
+      POSTGRES_PASSWORD: 14-10=4
+      POSTGRES_DB: smart-brain-docker
+      POSTGRES_HOST: postgres
     links:
       - postgres
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/usr/src/smart-brain-api
-      - /opt/usr/src/smart-brain-api/node_modules/
-
     # Postgres
   postgres:
     image: postgres
