@@ -23,6 +23,7 @@ const db = knex({
 
 const app = express();
 app.use(morgan('combined'))
+console.log(process.env.POSTGRES_USER);
 app.use(cors())
 app.use(express.json()); // latest version of exressJS now comes with Body-Parser!
 

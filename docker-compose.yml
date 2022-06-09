@@ -19,11 +19,11 @@ services:
       - "3000:3000"
     # Postgres
   postgres:
-    image: postgres
+    build: ./postgres
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: sally
-      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: gabi
+      POSTGRES_PASSWORD: 14-10=4
       POSTGRES_DB: smart-brain-docker
       POSTGRES_HOST: postgres

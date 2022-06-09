@@ -1,3 +1,4 @@
+BEGIN TRANSACTION;
 
 CREATE TABLE users(
     id serial PRIMARY KEY,
@@ -6,3 +7,5 @@ CREATE TABLE users(
     entries BIGINT DEFAULT 0,
     joined TIMESTAMP NOT NULL
 );
+
+COMMIT;
